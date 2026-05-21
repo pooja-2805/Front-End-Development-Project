@@ -8,7 +8,7 @@ input{border: 1px solid white;
     width: 204px;
     height: 33px;
     padding-left: 26px;
-background-color: black;}
+background-color: white;}
 input::placeholder{color: white;
 font-size: 15px;
 font-weight: 550;}
