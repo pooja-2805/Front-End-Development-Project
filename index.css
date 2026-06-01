@@ -222,3 +222,16 @@ border-right: 1px solid rgba(128, 128, 128, 0.644);}
     margin-left: 100px;
     margin-right: 50px;
 height: 250px;}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body, html {
+  width: 100%;
+  overflow-x: hidden; /* Prevents unwanted horizontal scrolling */
+}
+img, video {
+  max-width: 100%;
+  height: auto; /* Keeps images from stretching out of bounds */
+}
