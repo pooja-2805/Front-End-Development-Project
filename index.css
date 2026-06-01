@@ -1,272 +1,447 @@
-body{margin-left: 0px;
-margin-right: 0px;
-font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;}
-#block1{display: flex;}
-#logo h3{color:white;
+/* --- 1. GLOBAL FLUID RESET --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Fix Full-Screen Video Background */
+video {
+    position: fixed; /* Fixes position relative to viewport */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* --- 2. HEADER & NAVIGATION LAYOUT --- */
+#container1 {
+    width: 100%;
+    position: relative;
+}
+
+#block1 {
+    display: flex;
+    flex-wrap: wrap; /* Allows stacking elements safely on mobile devices */
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 5%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.15); /* Slight tint for text contrast */
+}
+
+/* Logo Setup */
+#logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#logo img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-left: 0; /* Cleared hardcoded margins */
+}
+
+#logo h3 {
+    color: white;
     text-shadow: 2px 2px black;
-font-family: Arial, Helvetica, sans-serif;
-font-weight: 750;
-margin: 0px 0px 0px 29px;}
-#logo p{color:black;
-font-family: Arial, Helvetica, sans-serif;
-font-weight: 550;
-font-size: small;
-margin-top: 3px;}
-#logo span,#tagline span{color: #228B22;}
-#logo img{   width: 100px;
-    height: 100px;
-    margin-left: 78px;
-border-radius: 50%;}
-#explore button,#popular button{width: 160px;
-height: 35px;
-margin-left: 100px;
-border-radius: 16px;
-color:white;
-font-weight: 550;
-font-family: Arial, Helvetica, sans-serif;
-border: 0px;
-background-color: #228B22;}
-#login button{width: 124px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 750;
+    margin: 5px 0 0 0;
+}
+
+#logo p {
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 550;
+    font-size: small;
+    margin-top: 3px;
+}
+
+#logo span, #tagline span {
+    color: #228B22;
+}
+
+/* Nav Dropdown Interactive Controls */
+#explore, #popular {
+    position: relative; /* Allows predictable absolute positioning context for child menu panels */
+}
+
+#explore button, #popular button {
+    width: 160px;
+    height: 35px;
+    border-radius: 16px;
+    color: white;
+    font-weight: 550;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 0px;
+    background-color: #228B22;
+    cursor: pointer;
+}
+
+#login button {
+    width: 124px;
     height: 40px;
-    margin-left: 100px;
     border-radius: 6px;
     color: white;
     background-color: #228B22;
     font-weight: 800;
     border: 1px outset black;
-    font-family: Arial, Helvetica, sans-serif;}
-#explore #exploredata{display: none;
-position: absolute;
-padding-left: 5px;
-top: 54px;
-left: 304px;
-background-color: white;
-border-radius: 6px;}
-#popular #populardata{display: none;
-position: absolute;
-top: 54px;
-left: 615px;
-background-color: white;
-border-radius: 6px;}
-#explore #exploredata #data{display: flex;}
-#explore #exploredata a:link,#populardata a:link{text-decoration: none;
-color: black;}
-#explore #exploredata a:hover,#populardata a:hover{color: #228B22;
-font-size: 18px}
-#explore #exploredata #data p,#popular #populardata #data p{margin-bottom: 0px;
-    margin-top: 0px;
-    margin-left:10px;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+}
+
+/* Dropdown Menu Boxes */
+#explore #exploredata {
+    display: none;
+    position: absolute;
+    padding: 15px;
+    top: 45px;
+    left: 0; /* Drop directly below parent button */
+    background-color: white;
+    border-radius: 6px;
+    z-index: 10;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+}
+
+#popular #populardata {
+    display: none;
+    position: absolute;
+    top: 45px;
+    left: 0; /* Drop directly below parent button */
+    padding: 15px;
+    background-color: white;
+    border-radius: 6px;
+    z-index: 10;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+}
+
+#explore #exploredata #data {
+    display: flex;
+}
+
+#explore #exploredata a:link, #populardata a:link {
+    text-decoration: none;
+    color: black;
+}
+
+#explore #exploredata a:hover, #populardata a:hover {
+    color: #228B22;
+    font-size: 18px;
+}
+
+#explore #exploredata #data p, #popular #populardata #data p {
+    margin: 0 0 0 10px;
     border-radius: 20px;
-        padding-left: 9px;
-        padding-right: 9px;
-    border: 1px solid white;}
-#explore #exploredata #data1 p{background-color: rgba(243, 112, 134, 0.767);}
-#explore #exploredata #data2 p{background-color: rgba(233, 150, 122, 0.678);}
-#explore #exploredata #data3 p{background-color: rgba(144, 238, 144, 0.664);}
-#explore #exploredata #data4 p{background-color: rgba(127, 255, 212, 0.644);}
-#explore #exploredata #data5 p{background-color: rgba(95, 158, 160, 0.658);}
-#explore #exploredata #datablock2{margin-left: 28px;
-    margin-right: 15px;}
-#explore #exploredata #data #data1,#explore #exploredata #data #data2,#explore #exploredata #data #data3,#explore #exploredata #data #data4,#explore #exploredata #data #data5{display: flex;}
-#populardata #data1,#populardata #data2,#populardata #data3,#populardata #data4,#populardata #data5,#populardata #data6,#populardata #data7,#populardata #data8,#populardata #data9,#populardata #data10{display: flex;}
-#popular #populardata #data p{background-color: #228b2288;
-margin-right: 20px;}   
-#menu button{color:black;
-        border: 0px;
-    margin-left: 70px;
-font-size:24px;}
-#menudata{display: none;
-position: absolute;
-z-index: 1;
-top: 46px;
-right: 7px;
-padding-left: 11px;
-    width: 260px;
-background-color:#ADD8E6}
-#menudata h4{color:#228B22;
-font-family: Arial, Helvetica, sans-serif;}
-#menudata p,#menudata #child{border:0px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align:left;
-    margin-bottom: 12px;
-width: 240px;
-font-size:19px;}
-#menudata p{cursor: pointer;}
-#menudata #child a{color: black;
-text-decoration: none;
-margin-top: 5px;}
-#menudata p i{margin-left: 82px;}
-#indiantourismdata{display: none;
-background-color:#add8e698;
-padding-left: 3px;
-border-radius: 10px;
+    padding: 0 9px;
+    border: 1px solid white;
+}
+
+#explore #exploredata #data1 p { background-color: rgba(243, 112, 134, 0.767); }
+#explore #exploredata #data2 p { background-color: rgba(233, 150, 122, 0.678); }
+#explore #exploredata #data3 p { background-color: rgba(144, 238, 144, 0.664); }
+#explore #exploredata #data4 p { background-color: rgba(127, 255, 212, 0.644); }
+#explore #exploredata #data5 p { background-color: rgba(95, 158, 160, 0.658); }
+
+#explore #exploredata #datablock2 {
+    margin-left: 28px;
     margin-right: 15px;
-padding-top: 5px;}
-#indiantourismdata a:link,#indiantourismdata a:visited,#indiantourismdata a:active{font-size: 15px;
-text-decoration: none;
-color: rgba(0, 0, 0, 0.808);}
-#indiantourismdata a:hover{color:#228B22;
-text-decoration: none;}
-#tagimg img{position: absolute;
-top: 0px;
-right: 34px;
-border-radius: 0px 0px 8px 8px;
-width: 100px;
-height: 200px;}
-#tagtxt i{color:white;
-position: absolute;
-top: 136px;
-right: 74px;}
-#tagline,#search{display: flex;
-justify-content: center;
-margin-top: 30px;}
-#search input{border: 3px solid #228B22;
+}
+
+#explore #exploredata #data #data1,
+#explore #exploredata #data #data2,
+#explore #exploredata #data #data3,
+#explore #exploredata #data #data4,
+#explore #exploredata #data #data5,
+#populardata #data1, #populardata #data2, #populardata #data3, #populardata #data4, #populardata #data5,
+#populardata #data6, #populardata #data7, #populardata #data8, #populardata #data9, #populardata #data10 {
+    display: flex;
+    margin-bottom: 8px;
+}
+
+#popular #populardata #data p {
+    background-color: #228b2288;
+    margin-right: 20px;
+}
+
+/* Mobile Sidebar Menu Toggle Button */
+#menu button {
+    color: black;
+    border: 0px;
+    font-size: 24px;
+    background: transparent;
+    cursor: pointer;
+}
+
+#menudata {
+    display: none;
+    position: absolute;
+    z-index: 15;
+    top: 60px;
+    right: 10px;
+    padding: 15px;
+    width: 260px;
+    background-color: #ADD8E6;
+    border-radius: 8px;
+}
+
+#menudata h4 {
+    color: #228B22;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#menudata p, #menudata #child {
+    border: 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: left;
+    margin-bottom: 12px;
+    width: 100%;
+    font-size: 19px;
+}
+
+#menudata p { cursor: pointer; }
+#menudata #child a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    margin-top: 5px;
+}
+
+#menudata p i {
+    float: right;
+}
+
+#indiantourismdata {
+    display: none;
+    background-color: #add8e698;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#indiantourismdata a:link, #indiantourismdata a:visited, #indiantourismdata a:active {
+    font-size: 15px;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.808);
+    display: block;
+    margin-bottom: 5px;
+}
+
+#indiantourismdata a:hover {
+    color: #228B22;
+}
+
+/* Flight Decorative Tag Banner */
+#tagimg img {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    border-radius: 0px 0px 8px 8px;
+    width: 60px;
+    height: 120px;
+}
+
+#tagtxt i {
+    color: white;
+    position: absolute;
+    top: 80px;
+    right: 32px;
+}
+
+/* --- 3. HERO CALL TO ACTIONS --- */
+#tagline, #search {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 30px;
+    padding: 0 20px;
+}
+
+#tagline h1 {
+    font-size: 2rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+#search input {
+    border: 3px solid #228B22;
     color: rgb(43, 39, 39);
-    width: 300px;
+    width: 100%;
+    max-width: 400px;
     border-radius: 23px;
-    padding-left: 12px;
+    padding-left: 15px;
     font-size: medium;
     font-weight: 550;
     height: 53px;
-margin-bottom: 120px;}
-#search i{    margin-left: -41px;
+    margin-bottom: 60px;
+}
+
+#search i {
+    margin-left: -41px;
     font-size: x-large;
-    padding-top: 18px;}
-#block3{display: flex;
-background-color: black;
-color: white;}
-#block3 .fa-circle-check,#block3 .fa-star,#block3 .fa-facebook,#block3 .fa-google{color: #228B22;}
-#block3 .fa-circle-check{margin-left: 100px;}
-#block3 .fa-facebook{margin-left: 180px;}
-#block3 .fa-google{margin-left: -4px;}
-video{position: absolute;
-top: 0px;
-z-index: -1;
-left: 0px;
-        width: 1501px;
-    height: 845px;}
-#container2,#container3,#container6,#container4,#container7,#container9{background-color: white;
-margin-top: -19px;
-padding-left: 70px;
-padding-right: 70px;}
-#container2 #shsimgs img{width:230px;
-height: 300px;}
-#container3 #epicimgs img,#container6 #meimgs img,#container4 #ebseimgs img,#container7 #usimgs img,#container9 #dgimgs img{width: 200px;
-height: 200px;}
-#container2 #shsimgs,#container3 #epicimgs,#container6 #meimgs,#container4 #ebseimgs,#container7 #usimgs,#container9 #dgimgs{display: flex;
-overflow-x: scroll;}
-#shsimgs::-webkit-scrollbar,#epicimgs::-webkit-scrollbar,#meimgs::-webkit-scrollbar,#ebseimgs::-webkit-scrollbar,#usimgs::-webkit-scrollbar,#dgimgs::-webkit-scrollbar{display: none;}
-#container2 #shsimgs a,#container3 #epicimgs a,#container6 #meimgs a,#container4 #ebseimgs a,#container7 #usimgs a,#container9 #dgimgs a{margin-right: 20px;
-margin-left: 20px;}
-#container5 #c5imgs a{margin-left: 10px;
-margin-right: 10px;}
-#container2 h2,#container3 h2,#container6 h2,#container4 h2,#container7 h2{padding-top: 17px;}
-#container4 figcaption{color: black;
-font-weight: 550;
-text-align: center;
-margin-top: 10px;
-font-size: 20px;}
-#container4 a:link{text-decoration: none;}
-#c5imgs img{width: 230px;
-height: 280px;}
-#container5{background-image:linear-gradient(rgba(114, 3, 3, 0.86)),url(../images-m&m/container5backgroundimg.jpg);
-    background-size: cover;
-text-align: center;
-height: 500px;
-margin-left: 150px;
-border-radius: 10px;
-margin-bottom: 65px;
-margin-right: 150px;}
-#container5 #txt1 h3{color: white;
-font-size: 25px;
-    margin-top: 65px;
-    padding-top: 20px;}
-#container5 #txt2{font-family:cursive;
-    color: #ADD8E6;
-    margin-top: -19px;
-font-size: 30px;
-margin-bottom: 7px;}
-#container8{background-color: #ADD8E6;
-text-align: center;
-height: 400px;
-margin-left: 30px;
-border-radius: 10px;
-margin-bottom: 65px;
-margin-right: 30px;}
-#container8 #txt1 h3{font-size: 25px;
-    margin-top: 65px;
-    padding-top: 20px;}
-#container8 #txt2{color: maroon;
-font-family: cursive;
-margin-top: -19px;
-font-size: 30px;
-margin-bottom: 7px;}
-#c8imgs img{width:200px ;
-height: 200px;}
-#block102,#block103,#block104,#block105{display: flex;
-    margin-top: 50px;
-margin-left: 38px;}
-#container10{background-color: black;}
-#container10 #txt1,#container10 #image1{text-align: center;}
-#container10 a:link{color: white;
-text-decoration: none;}
-#container10 a:hover{color: white;
-    text-decoration: dashed;}
-    #container10 a:visited{color: white;}
-#container10 h3,#container10 h4{color: #ADD8E6;}
-#container10 #image1 img{width: 1000px;}
-#block102 #txt{color: white;
-    padding-right: 50px;
-border-right: 1px solid rgba(128, 128, 128, 0.644);}
-#block102 #image img{width: 300px;
-    margin-left: 100px;
-    margin-right: 50px;
-height: 250px;}
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-body, html {
-  width: 100%;
-  overflow-x: hidden; /* Prevents unwanted horizontal scrolling */
-}
-img, video {
-  max-width: 100%;
-  height: auto; /* Keeps images from stretching out of bounds */
-}
-.card-container {
-  display: flex;
-  flex-wrap: wrap; /* Allows cards to wrap to the next line on mobile */
-  justify-content: center; /* Centers elements horizontally */
-  gap: 20px; /* Even spacing between your cards */
-  width: 100%;
-  max-width: 1200px; /* Keeps content centered and neat on massive desktop monitors */
-  margin: 0 auto; /* Centers the whole container */
+    padding-top: 15px;
+    color: #228B22;
+    z-index: 2;
 }
 
-.card {
-  flex: 1 1 300px; /* Automatically shrinks and grows, with a base size of 300px */
-  max-width: 100%;
-}
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Automatically adds/removes columns based on space */
-  gap: 15px;
-  padding: 20px;
-}
-/* Mobile Styles (Default / Mobile-First Approach) */
-.hero-section {
-  padding: 20px;
-  text-align: center;
+/* --- 4. TRUST BADGES OVERVIEW --- */
+#block3 {
+    display: flex;
+    flex-wrap: wrap; /* Wraps items into columns automatically on mobile viewports */
+    justify-content: space-around;
+    gap: 15px;
+    background-color: black;
+    color: white;
+    padding: 20px 5%;
 }
 
-/* Desktop Styles (Triggered on larger screens) */
-@media (min-width: 768px) {
-  .hero-section {
-    padding: 60px;
+#block3 > div {
     display: flex;
     align-items: center;
-  }
+    gap: 8px;
 }
 
+#block3 .fa-circle-check, #block3 .fa-star, #block3 .fa-facebook, #block3 .fa-google {
+    color: #228B22;
+    margin: 0; /* Wipe fixed margin dependencies */
+}
+
+/* --- 5. IMAGE & CAROUSEL CONTAINER SECTIONS --- */
+#container2, #container3, #container6, #container4, #container7, #container9 {
+    background-color: white;
+    padding: 20px 5%;
+}
+
+#container2 h2, #container3 h2, #container6 h2, #container4 h2, #container7 h2 {
+    padding-top: 17px;
+    margin-bottom: 15px;
+}
+
+/* Shared Mobile Horizontal Scroll Configurations */
+#container2 #shsimgs, 
+#container3 #epicimgs, 
+#container6 #meimgs, 
+#container4 #ebseimgs, 
+#container7 #usimgs, 
+#container9 #dgimgs {
+    display: flex;
+    overflow-x: auto; /* Allows left-to-right swipe actions on smartphones */
+    gap: 15px;
+    padding-bottom: 10px;
+    -webkit-overflow-scrolling: touch; 
+}
+
+/* Hide native browser scroll tracks */
+#shsimgs::-webkit-scrollbar, 
+#epicimgs::-webkit-scrollbar, 
+#meimgs::-webkit-scrollbar, 
+#ebseimgs::-webkit-scrollbar, 
+#usimgs::-webkit-scrollbar, 
+#dgimgs::-webkit-scrollbar {
+    display: none;
+}
+
+#container2 #shsimgs a, 
+#container3 #epicimgs a, 
+#container6 #meimgs a, 
+#container4 #ebseimgs a, 
+#container7 #usimgs a, 
+#container9 #dgimgs a {
+    flex: 0 0 auto; /* Forces content boxes to size off image specifications instead of squishing */
+    margin: 0;
+}
+
+/* Scalable Photo Sizes */
+#container2 #shsimgs img {
+    width: 200px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+#container3 #epicimgs img, 
+#container6 #meimgs img, 
+#container4 #ebseimgs img, 
+#container7 #usimgs img, 
+#container9 #dgimgs img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+#container4 figcaption {
+    color: black;
+    font-weight: 550;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+#container4 a:link { text-decoration: none; }
+
+/* --- 6. MIDDLE PROMO CARDS (#container5 & #container8) --- */
+#container5, #container8 {
+    text-align: center;
+    padding: 20px;
+    margin: 30px auto;
+    width: 90%; /* Standardize card container space width */
+    max-width: 1200px;
+    border-radius: 10px;
+    height: auto; /* Shrinks container down automatically on thin viewports */
+}
+
+#container5 {
+    background-image: linear-gradient(rgba(114, 3, 3, 0.86), rgba(114, 3, 3, 0.86)), url('../images-m&m/container5backgroundimg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+#container8 {
+    background-color: #ADD8E6;
+}
+
+#container5 #txt1 h3, #container8 #txt1 h3 {
+    color: white;
+    font-size: 22px;
+    margin-top: 15px;
+}
+#container8 #txt1 h3 { color: black; }
+
+#container5 #txt2, #container8 #txt2 {
+    font-family: cursive;
+    margin-top: 5px;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+#container5 #txt2 { color: #ADD8E6; }
+#container8 #txt2 { color: maroon; }
+
+#c5imgs, #c8imgs {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    justify-content: flex-start;
+    padding-bottom: 10px;
+}
+
+#c5imgs img { width: 180px; height: 230px; object-fit: cover; border-radius: 6px; }
+#c8imgs img { width: 160px; height: 160px; object-fit: cover; border-radius: 6px; }
+
+/* --- 7. FOOTER STYLING CONFIGS --- */
+#container10 {
+    background-color: black;
+    color: white;
+    padding: 40px 5%;
+}
+
+#container10 #txt1, #container10 #image1 {text-align: center;margin-bottom: 20px;}#container10 #image1 img {width: 100%;max-width: 800px;height: auto;}#container10 a:link, #container10 a:visited { color: white; text-decoration: none; }#container10 a:hover { color: white; text-decoration: underline; }#container10 h3, #container10 h4 { color: #ADD8E6; margin-bottom: 10px; }/* Footer Links Columns Setup /#block102, #block103, #block104, #block105 {display: flex;flex-direction: column; / Stacked layout by default for easy mobile viewing */gap: 20px;margin: 20px 0;}#block102 #txt {color: white;padding-bottom: 20px;border-bottom: 1px solid rgba(128, 128, 128, 0.644);border-right: none;}#block102 #image img {width: 100%;max-width: 300px;height: auto;margin: 0 auto;display: block;}/* --- 8. RESPONSIVE MEDIA QUERIES (DESKTOP EXTENSIONS) --- /@media (min-width: 768px) {/ Navbar Adjustment for Desktop Monitor sizes */#block1 {flex-wrap: nowrap;}#logo img {width: 100px;height: 100px;}#logo h3 {margin: 0 0 0 29px;}/* Reveal inline headers navigation tabs layout elements */#menu { display: none; }#explore button, #popular button, #login button {margin-left: 20px;}/* Reposition desktop absolute interactive layouts overlays drop locations */#explore #exploredata { left: 20px; }#popular #populardata { left: 20px; }/* Increase Typography/Scales across Desktop Screens sizes */#tagline h1 { font-size: 3rem; }/* Convert scroll tracking container blocks to grids or justified spacing if desired */#c5imgs, #c8imgs {justify-content: center;}#container2 #shsimgs img { width: 230px; height: 300px; }#container3 #epicimgs img { width: 200px; height: 200px; }/* Footer structural blocks reconfiguration /#block102 {flex-direction: row; / Horizontal columns layout alignment rules activated */justify-content: space-between;}#block102 #txt {padding-right: 50px;border-right: 1px solid rgba(128, 128, 128, 0.644);border-bottom: none;flex: 1;}#block102 #image img {margin-left: 50px;flex: 1;}}
