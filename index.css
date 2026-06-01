@@ -3,12 +3,14 @@
     margin: 0;
     padding: 0;
 }
+
 body {
     width: 100%;
-    overflow-x: hidden; /* Stops any hidden sideways container scrolling */
+    overflow-x: hidden;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-color: #f4f4f4;
 }
+
 video {
     position: fixed;
     top: 0;
@@ -28,22 +30,21 @@ video {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 15px; 
+    padding: 10px 15px;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.85);
     position: relative;
 }
 
-
 #logo {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    max-width: 70%; 
+    max-width: 70%;
 }
 
 #logo img {
-    width: 60px; 
+    width: 60px;
     height: 60px;
     border-radius: 50%;
     margin-left: 0;
@@ -70,11 +71,9 @@ video {
     color: #228B22;
 }
 
-
 #explore, #popular, #login {
     display: none; 
 }
-
 
 #menu {
     display: block;
@@ -89,14 +88,13 @@ video {
     padding: 5px;
 }
 
-
 #menudata {
     display: none;
     position: absolute;
     z-index: 99;
-    top: 100%; 
+    top: 100%;
     left: 0;
-    width: 100%; 
+    width: 100%;
     padding: 20px;
     background-color: #ADD8E6;
     box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
@@ -163,7 +161,6 @@ video {
     font-size: 12px;
 }
 
-
 #tagline, #search {
     display: flex;
     justify-content: center;
@@ -173,7 +170,7 @@ video {
 }
 
 #tagline h1 {
-    font-size: 1.6rem; 
+    font-size: 1.6rem;
     color: white;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
 }
@@ -198,7 +195,7 @@ video {
 
 #block3 {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     gap: 12px;
     background-color: black;
     color: white;
@@ -216,7 +213,6 @@ video {
     color: #228B22;
 }
 
-
 #container2, #container3, #container6, #container4, #container7, #container9 {
     background-color: white;
     padding: 15px;
@@ -226,7 +222,6 @@ video {
     font-size: 1.3rem;
     margin-bottom: 10px;
 }
-
 
 #container2 #shsimgs, 
 #container3 #epicimgs, 
@@ -238,9 +233,8 @@ video {
     overflow-x: auto;
     gap: 12px;
     padding-bottom: 10px;
-    -webkit-overflow-scrolling: touch; 
+    -webkit-overflow-scrolling: touch;
 }
-
 
 #shsimgs::-webkit-scrollbar, #epicimgs::-webkit-scrollbar, #meimgs::-webkit-scrollbar, 
 #ebseimgs::-webkit-scrollbar, #usimgs::-webkit-scrollbar, #dgimgs::-webkit-scrollbar {
@@ -261,7 +255,6 @@ video {
     margin-top: 5px;
     font-size: 14px;
 }
-
 
 #container5, #container8 {
     text-align: center;
@@ -291,7 +284,6 @@ video {
 }
 #c5imgs img { width: 140px; height: 180px; object-fit: cover; border-radius: 6px; }
 #c8imgs img { width: 120px; height: 120px; object-fit: cover; border-radius: 6px; }
-
 
 #container10 {
     background-color: black;
@@ -324,15 +316,15 @@ video {
     margin: 0 auto;
 }
 
-
-
 @media (min-width: 768px) {
     #block1 { padding: 15px 5%; }
     #logo img { width: 90px; height: 90px; }
     #logo h3 { font-size: 1.5rem; }
+    
     #menu { display: none; }
     #explore, #popular, #login { display: block; }
     #explore button, #popular button, #login button { margin-left: 15px; }
+    
     #explore #exploredata, #popular #populardata {
         display: none;
         position: absolute;
@@ -346,6 +338,7 @@ video {
     
     #tagline h1 { font-size: 2.8rem; }
     #search input { max-width: 450px; }
+    
     #block3 { flex-direction: row; justify-content: space-around; padding: 20px; }
     #container2 #shsimgs img { width: 220px; height: 280px; }
     #container3 #epicimgs img, #container4 #ebseimgs img { width: 180px; height: 180px; }
